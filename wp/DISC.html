@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>DISC性格测试 | CSSPod</title>
+    <style type="text/css">
+        @font-face {
+                  font-family: 'Eagle Lake';
+                  font-style: normal;
+                  font-weight: 400;
+                  src: local('Eagle Lake'), local('EagleLake-Regular'), url(http://themes.googleusercontent.com/static/fonts/eaglelake/v1/7iuL6oiKGY2Q5j9N_W6Qtb3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff');
+                }
+        * { margin: 0;padding: 0;border: none;}
+        html { background-color: #F2F2F2; font-size: 62.5%; }
+        body { font-size: 1em;line-height: 1.7; font-family:Helvetica,Arial,Verdana,sans-serif;}
+
+        ul { list-style: none;}
+        #top { width: 96%; max-width: 920px; min-width: 320px; margin: 0 auto; font-size: 1.4em; padding: 2em;}
+        header {border-bottom: 1px solid #FFF; margin-bottom: 2em;}
+        header h1 { font-size: 1.8em;border-bottom: 1px solid #CCC; line-height: 2.5;}
+        #disc-q {}
+        fieldset {padding: 1em; margin: 1em 0; background-color: #FFF; border-radius: 0 5px 5px;box-shadow: 0 0 2px rgba(255,255,255,0.2); position: relative;border: 1px solid #E2E2E2; border-color: #E2E2E2 #aaa #aaa #E2E2E2;}
+        fieldset.error { border-color: red;}
+        fieldset:nth-child(even) { background-color:;}
+        fieldset:hover { background-color:#FFE ;}
+        legend { position: absolute; left: -1.5em; top: 1px; width: 1.5em; line-height: 1.2; text-align: center;border-radius: 3px 0 0 3px; color: #FFF; box-shadow: 0 0 2px rgba(200,200,200,0.3); padding: 5px 0; background-color: #999;}
+        fieldset:nth-child(4n+1) legend { background-color: #E74000;}
+        fieldset:nth-child(4n+2) legend { background-color: #73b200;}
+        fieldset:nth-child(4n+3) legend { background-color: #f9b100;}
+        fieldset:nth-child(4n+4) legend { background-color: #248bf6;}
+        li {border-radius: 3px;;}
+        li input { margin-left: 5px; margin-right: 5px;}
+        li:hover { background-color: #FFFFBA;}
+        li.selected { background-color: #73b200; color: #FFF;}
+        .selValue { position: absolute; font-size: 2.4em; right: 20px; bottom: 5px;color: #248bf6; opacity: 0; font-family: 'Eagle Lake','Times New Roman', sans; text-shadow: 0 0 3px rgb(255,255,255), 0 0 5px rgba(0,0,0,0.5);}
+
+        nav { position: fixed; right: 0; top: 50%;}
+
+        #progressbar { position:fixed; top: 0;left: 0;height: 12px; width: 100%;border-bottom: 1px solid #EEE;display: none;line-height: 0;}
+
+        progress { height: 10px;width: 100%; }
+
+
+        progress,          /* All HTML5 progress enabled browsers */
+        progress[role]     /* polyfill */
+        {
+
+        	/* Turns off styling - not usually needed, but good to know. */
+        	appearance: none;
+        	-moz-appearance: none;
+        	-webkit-appearance: none;
+
+        	/* gets rid of default border in Firefox and Opera. */
+            border: none;
+            border-bottom: 1px solid #888;
+
+        	/* Needs to be in here for Safari polyfill so background images work as expected. */
+        	background-size: auto;
+        }
+
+        /* Polyfill */
+        progress[role]:after {
+        	background-image: none; /* removes default background from polyfill */
+        }
+
+        /* Ensure fallback text doesn't appear in polyfill */
+        progress[role] strong {
+        	/*display: none;*/
+        }
+
+        progress,                          /* Firefox  */
+        progress[role][aria-valuenow] {    /* Polyfill */
+           background: #DEDEDE !important; /* !important is needed by the polyfill */
+        }
+
+        /* Chrome */
+        progress::-webkit-progress-bar {
+            background: #DEDEDE;
+        }
+
+        /* IE10 */
+        progress {
+            color: #248bf6;
+        }
+
+        /* Firefox */
+        progress::-moz-progress-bar {
+            background:#248bf6;
+        }
+
+        /* Chrome */
+        progress::-webkit-progress-value {
+            background:#248bf6;
+        }
+
+        /* Polyfill */
+        progress[aria-valuenow]:before  {
+            background: #248bf6;
+        }
+
+        #result { position: fixed;right: 50px; top: 50px;}
+
+
+    </style>
+</head>
+<body>
+    <div id="top">
+        <header>
+            <h1>DISC性格测试</h1>
+        </header>
+
+        <form id="disc-q">
+
+        <fieldset>
+            <legend>第1题</legend>
+            <ul>
+                <li>
+                    <input name="question1" value="C" id="1a1" type="radio">
+                    <label for="1a1"> A．理想主义：以自己完美的标准来设想衡量新事物； </label></li>
+                <li>
+                    <input name="question1" value="D" id="1a2" type="radio">
+                    <label for="1a2"> B．独立：自给自足，独立自信，不需要他人帮忙；</label></li>
+                <li>
+                    <input name="question1" value="S" id="1a3" type="radio">
+                    <label for="1a3"> C．无攻击性：不说或者做可能引起别人不满和反对的事情；</label></li>
+                <li>
+                    <input name="question1" value="I" id="1a4" type="radio">
+                    <label for="1a4"> D．富有激励：鼓励别人参与、加入，并把每件事情变得有趣。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第2题</legend>
+            <ul>
+                <li>
+                    <input name="question2" value="C" id="2a1" type="radio">
+                    <label for="2a1"> A．挑剔：坚持琐事细节，总喜欢挑不足； </label></li>
+                <li>
+                    <input name="question2" value="S" id="2a2" type="radio">
+                    <label for="2a2">
+                        B．胆小：经常感到强烈的担心焦虑、悲戚；</label></li>
+                <li>
+                    <input name="question2" value="I" id="2a3" type="radio">
+                    <label for="2a3">
+                        C．健忘：缺乏自我约束，导致健忘，不愿意回忆无趣的事情；</label></li>
+                <li>
+                    <input name="question2" value="D" id="2a4" type="radio">
+                    <label for="2a4">
+                        D．率直：直言不讳，直接表达自己的看法。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第3题</legend>
+            <ul>
+                <li>
+                    <input name="question3" value="S" id="3a1" type="radio">
+                    <label for="3a1">
+                        A．妥协：为避免矛盾即使自己是对的也不惜放弃自己的立场； </label></li>
+                <li>
+                    <input name="question3" value="C" id="3a2" type="radio">
+                    <label for="3a2">
+                        B．好批评：不断地衡量和下判断，经常考虑提出反对意见；</label></li>
+                <li>
+                    <input name="question3" value="D" id="3a3" type="radio">
+                    <label for="3a3">
+                        C．狡猾：精明，总是有办法达到目的；</label></li>
+                <li>
+                    <input name="question3" value="I" id="3a4" type="radio">
+                    <label for="3a4">
+                        D．善变：像孩子般注意力短暂，需要各种变化，怕无聊。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第4题</legend>
+            <ul>
+                <li>
+                    <input name="question4" value="C" id="4a1" type="radio">
+                    <label for="4a1">
+                        A．报复性：记恨并惩罚冒犯自己的人； </label></li>
+                <li>
+                    <input name="question4" value="I" id="4a2" type="radio">
+                    <label for="4a2">
+                        B．烦躁：喜新厌旧，不喜欢长时间做相同的事情；</label></li>
+                <li>
+                    <input name="question4" value="S" id="4a3" type="radio">
+                    <label for="4a3">
+                        C．勉强：不愿意参与或者说投入；</label></li>
+                <li>
+                    <input name="question4" value="D" id="4a4" type="radio">
+                    <label for="4a4">
+                        D．轻率：因没有耐心，不经思考，草率行动。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第5题</legend>
+            <ul>
+                <li>
+                    <input name="question5" value="S" id="5a1" type="radio">
+                    <label for="5a1">
+                        A．保留：不愿意参与，尤其是当事情复杂时； </label></li>
+                <li>
+                    <input name="question5" value="C" id="5a2" type="radio">
+                    <label for="5a2">
+                        B．怨恨：把实际或者自己想象的别人的冒犯经常放在心中；</label></li>
+                <li>
+                    <input name="question5" value="D" id="5a3" type="radio">
+                    <label for="5a3">
+                        C．逆反：抗拒、或者拒不接受别人的方法，固执己见；</label></li>
+                <li>
+                    <input name="question5" value="I" id="5a4" type="radio">
+                    <label for="5a4">
+                        D．唠叨：重复讲同一件事情或故事，忘记已经重复多次，总是不断找话题说话。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第6题</legend>
+            <ul>
+                <li>
+                    <input name="question6" value="I" id="6a1" type="radio">
+                    <label for="6a1">
+                        A．令人开心：充满活力，并将快乐传于他人； </label></li>
+                <li>
+                    <input name="question6" value="C" id="6a2" type="radio">
+                    <label for="6a2">
+                        B．文化修养：对艺术学术特别爱好，如戏剧、交响乐；</label></li>
+                <li>
+                    <input name="question6" value="D" id="6a3" type="radio">
+                    <label for="6a3">
+                        C．自信：确信自己个人能力与成功；</label></li>
+                <li>
+                    <input name="question6" value="S" id="6a4" type="radio">
+                    <label for="6a4">
+                        D．贯彻始终：情绪平稳，做事情坚持不懈。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第7题</legend>
+            <ul>
+                <li>
+                    <input name="question7" value="S" id="7a1" type="radio">
+                    <label for="7a1"> A．拖延：凡事起步慢，需要推动力； </label></li>
+                <li>
+                    <input name="question7" value="C" id="7a2" type="radio">
+                    <label for="7a2"> B．多疑：凡事怀疑，不相信别人；</label></li>
+                <li>
+                    <input name="question7" value="D" id="7a3" type="radio">
+                    <label for="7a3"> C．易怒：对行动不快或不能完成指定工作时易烦躁和发怒；</label></li>
+                <li>
+                    <input name="question7" value="I" id="7a4" type="radio">
+                    <label for="7a4"> D．不专注：无法专心致志或者集中精力。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第8题</legend>
+            <ul>
+                <li>
+                    <input name="question8" value="D" id="8a1" type="radio">
+                    <label for="8a1">
+                        A．肯定：自信，极少犹豫或者动摇； </label></li>
+                <li>
+                    <input name="question8" value="I" id="8a2" type="radio">
+                    <label for="8a2">
+                        B．无拘无束：不喜欢预先计划，或者被计划牵制；</label></li>
+                <li>
+                    <input name="question8" value="S" id="8a3" type="radio">
+                    <label for="8a3">
+                        C．羞涩：安静，不善于交谈；</label></li>
+                <li>
+                    <input name="question8" value="C" id="8a4" type="radio">
+                    <label for="8a4">
+                        D．有时间性：生活处事依靠时间表，不喜欢计划被人干扰。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第9题</legend>
+            <ul>
+                <li>
+                    <input name="question9" value="I" id="9a1" type="radio">
+                    <label for="9a1">
+                        A．使人认同：因人格魅力或性格使人认同； </label></li>
+                <li>
+                    <input name="question9" value="C" id="9a2" type="radio">
+                    <label for="9a2">
+                        B．体贴：关心别人的感受与需要；</label></li>
+                <li>
+                    <input name="question9" value="D" id="9a3" type="radio">
+                    <label for="9a3">
+                        C．竞争性：把一切当作竞赛，总是有强烈的赢的欲望；</label></li>
+                <li>
+                    <input name="question9" value="S" id="9a4" type="radio">
+                    <label for="9a4">
+                        D．自控性：控制自己的情感，极少流露。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第10题</legend>
+            <ul>
+                <li>
+                    <input name="question10" value="C" id="10a1" type="radio">
+                    <label for="10a1">
+                        A．孤僻：需要大量的时间独处，避开人群； </label></li>
+                <li>
+                    <input name="question10" value="D" id="10a2" type="radio">
+                    <label for="10a2">
+                        B．统治欲：毫不犹豫地表示自己的正确或控制能力；</label></li>
+                <li>
+                    <input name="question10" value="S" id="10a3" type="radio">
+                    <label for="10a3">
+                        C．懒惰：总是先估量事情要耗费多少精力，能不做最好；</label></li>
+                <li>
+                    <input name="question10" value="I" id="10a4" type="radio">
+                    <label for="10a4">
+                        D．大嗓门：说话声和笑声总盖过他人。</label></li>
+
+
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第11题</legend>
+            <ul>
+                <li>
+                    <input name="question11" value="I" id="11a1" type="radio">
+                    <label for="11a1">
+                        A．散漫：生活任性无秩序； </label></li>
+                <li>
+                    <input name="question11" value="D" id="11a2" type="radio">
+                    <label for="11a2">
+                        B．无同情心：不易理解别人的问题和麻烦；</label></li>
+                <li>
+                    <input name="question11" value="S" id="11a3" type="radio">
+                    <label for="11a3">
+                        C．缺乏热情：不易兴奋，经常感到好事难做；</label></li>
+                <li>
+                    <input name="question11" value="C" id="11a4" type="radio">
+                    <label for="11a4">
+                        D．不宽恕：不易宽恕和忘记别人对自己的伤害，易嫉妒。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第12题</legend>
+            <ul>
+                <li>
+                    <input name="question12" value="S" id="12a1" type="radio">
+                    <label for="12a1">
+                        A．缓慢：行动思想均比较慢，过分麻烦； </label></li>
+                <li>
+                    <input name="question12" value="D" id="12a2" type="radio">
+                    <label for="12a2">
+                        B．顽固：决心依自己的意愿行事，不易被说服；</label></li>
+                <li>
+                    <input name="question12" value="I" id="12a3" type="radio">
+                    <label for="12a3">
+                        C．好表现：要吸引人，需要自己成为被人注意的中心；</label></li>
+                <li>
+                    <input name="question12" value="C" id="12a4" type="radio">
+                    <label for="12a4">
+                        D．有戒心：不易相信，对语言背后的真正的动机存在疑问。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第13题</legend>
+            <ul>
+                <li>
+                    <input name="question13" value="C" id="13a1" type="radio">
+                    <label for="13a1">
+                        A．过分敏感：对事物过分反应，被人误解时感到被冒犯； </label></li>
+                <li>
+                    <input name="question13" value="D" id="13a2" type="radio">
+                    <label for="13a2">
+                        B．不圆滑老练：经常用冒犯或考虑不周的方式表达自己；</label></li>
+                <li>
+                    <input name="question13" value="S" id="13a3" type="radio">
+                    <label for="13a3">
+                        C．胆怯：遇到困难退缩；</label></li>
+                <li>
+                    <input name="question13" value="I" id="13a4" type="radio">
+                    <label for="13a4">
+                        D．喋喋不休：难以自控，滔滔不绝，不能倾听别人。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第14题</legend>
+            <ul>
+                <li>
+                    <input name="question14" value="I" id="14a1" type="radio">
+                    <label for="14a1">
+                        A．使人振作：给他人清新振奋的刺激； </label></li>
+                <li>
+                    <input name="question14" value="C" id="14a2" type="radio">
+                    <label for="14a2">
+                        B．尊重他人：对人诚实尊重；</label></li>
+                <li>
+                    <input name="question14" value="D" id="14a3" type="radio">
+                    <label for="14a3">
+                        C．善于应变：对任何情况都能作出有效的反应；</label></li>
+                <li>
+                    <input name="question14" value="S" id="14a4" type="radio">
+                    <label for="14a4">
+                        D．含蓄：自我约束情绪与热忱。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第15题</legend>
+            <ul>
+                <li>
+                    <input name="question15" value="I" id="15a1" type="radio">
+                    <label for="15a1">
+                        A．杂乱无章：生活环境无秩序，经常找不到东西； </label></li>
+                <li>
+                    <input name="question15" value="C" id="15a2" type="radio">
+                    <label for="15a2">
+                        B．情绪化：情绪容易高涨，感到不被欣赏时很容易低落；</label></li>
+                <li>
+                    <input name="question15" value="S" id="15a3" type="radio">
+                    <label for="15a3">
+                        C．喃喃自语：低声说话，不在乎说不清楚；</label></li>
+                <li>
+                    <input name="question15" value="D" id="15a4" type="radio">
+                    <label for="15a4">
+                        D．喜操纵：精明处事，操纵事情，使对自己有利。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第16题</legend>
+            <ul>
+                <li>
+                    <input name="question16" value="S" id="16a1" type="radio">
+                    <label for="16a1">
+                        A．乏味：死气沉沉，缺乏生气； </label></li>
+                <li>
+                    <input name="question16" value="C" id="16a2" type="radio">
+                    <label for="16a2">
+                        B．忸怩：躲避别人的注意力，在众人注意下不自然；</label></li>
+                <li>
+                    <input name="question16" value="I" id="16a3" type="radio">
+                    <label for="16a3">
+                        C．露骨：好表现，华而不实，声音大；</label></li>
+                <li>
+                    <input name="question16" value="D" id="16a4" type="radio">
+                    <label for="16a4">
+                        D．专横：喜命令支配，有时略显傲慢。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第17题</legend>
+            <ul>
+                <li>
+                    <input name="question17" value="D" id="17a1" type="radio">
+                    <label for="17a1">
+                        A．勇敢：敢于冒险，无所畏惧； </label></li>
+                <li>
+                    <input name="question17" value="S" id="17a2" type="radio">
+                    <label for="17a2">
+                        B．体贴：待人得体，有耐心；</label></li>
+                <li>
+                    <input name="question17" value="C" id="17a3" type="radio">
+                    <label for="17a3">
+                        C．注意细节：观察入微，做事情有条不紊；</label></li>
+                <li>
+                    <input name="question17" value="I" id="17a4" type="radio">
+                    <label for="17a4">
+                        D．可爱：开心，与他人相处充满乐趣。</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第18题</legend>
+            <ul>
+                <li>
+                    <input name="question18" value="I" id="18a1" type="radio">
+                    <label for="18a1">
+                        A．缺乏毅力：反复无常，互相矛盾，情绪与行动不合逻辑； </label></li>
+                <li>
+                    <input name="question18" value="C" id="18a2" type="radio">
+                    <label for="18a2">
+                        B．内向：活在自己的世界里，思想和兴趣放在心里；</label></li>
+                <li>
+                    <input name="question18" value="D" id="18a3" type="radio">
+                    <label for="18a3">
+                        C．不容忍：不能忍受他人的观点、态度和做事的方式；</label></li>
+                <li>
+                    <input name="question18" value="S" id="18a4" type="radio">
+                    <label for="18a4">
+                        D．无异议：对很多事情漠不关心。</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第19题</legend>
+            <ul>
+                <li>
+                    <input name="question19" value="S" id="19a1" type="radio">
+                    <label for="19a1">
+                        A．担忧：时时感到不确定、焦虑、心烦； </label></li>
+                <li>
+                    <input name="question19" value="C" id="19a2" type="radio">
+                    <label for="19a2">
+                        B．不善交际:总喜欢挑人毛病，不被人喜欢；</label></li>
+                <li>
+                    <input name="question19" value="D" id="19a3" type="radio">
+                    <label for="19a3">
+                        C．工作狂:为了回报或者说成就感，而不是为了完美，因而设立雄伟目标不断工作，耻于休息。</label></li>
+                <li>
+                    <input name="question19" value="I" id="19a4" type="radio">
+                    <label for="19a4">
+                        D．喜获认同：需要旁人认同赞赏，像演员。</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第20题</legend>
+            <ul>
+                <li>
+                    <input name="question20" value="C" id="20a1" type="radio">
+                    <label for="20a1">
+                        A．考虑周到：善解人意，帮助别人，记住特别的日子； </label></li>
+                <li>
+                    <input name="question20" value="D" id="20a2" type="radio">
+                    <label for="20a2">
+                        B．执着：不达目的，誓不罢休；</label></li>
+                <li>
+                    <input name="question20" value="I" id="20a3" type="radio">
+                    <label for="20a3">
+                        C．多言：不断的说话、讲笑话以娱乐他人，觉得应该避免沉默而带来的的尴尬；</label></li>
+                <li>
+                    <input name="question20" value="S" id="20a4" type="radio">
+                    <label for="20a4">
+                        D．容忍：易接受别人的想法和看法，不需要反对或改变他人。</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第21题</legend>
+            <ul>
+                <li>
+                    <input name="question21" value="S" id="21a1" type="radio">
+                    <label for="21a1">
+                        A．腼腆：事事不确定，对所做的事情缺乏信心； </label></li>
+                <li>
+                    <input name="question21" value="I" id="21a2" type="radio">
+                    <label for="21a2">
+                        B．生活紊乱：缺乏安排生活的能力；</label></li>
+                <li>
+                    <input name="question21" value="D" id="21a3" type="radio">
+                    <label for="21a3">
+                        C．跋扈：冲动的控制事物和别人，指挥他人；</label></li>
+                <li>
+                    <input name="question21" value="C" id="21a4" type="radio">
+                    <label for="21a4">
+                        D．抑郁：常常情绪低落。</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第22题</legend>
+            <ul>
+                <li>
+                    <input name="question22" value="I" id="22a1" type="radio">
+                    <label for="22a1">
+                        A．跳跃性：充满活力和生气勃勃； </label></li>
+                <li>
+                    <input name="question22" value="D" id="22a2" type="radio">
+                    <label for="22a2">
+                        B．无畏：大胆前进，不怕冒险；</label></li>
+                <li>
+                    <input name="question22" value="C" id="22a3" type="radio">
+                    <label for="22a3">
+                        C．规范性：时时坚持自己的举止合乎认同的道德规范；</label></li>
+                <li>
+                    <input name="question22" value="S" id="22a4" type="radio">
+                    <label for="22a4">
+                        D．平衡：稳定，走中间路线。</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第23题</legend>
+            <ul>
+                <li>
+                    <input name="question23" value="I" id="23a1" type="radio">
+                    <label for="23a1">
+                        A．天真：孩子般的单纯，不理解生命的真谛； </label></li>
+                <li>
+                    <input name="question23" value="C" id="23a2" type="radio">
+                    <label for="23a2">
+                        B．消极：往往看到事物的消极面阴暗面，而少有积极的态度；</label></li>
+                <li>
+                    <input name="question23" value="D" id="23a3" type="radio">
+                    <label for="23a3">
+                        C．鲁莽：充满自信有胆识但总是不恰当；</label></li>
+                <li>
+                    <input name="question23" value="S" id="23a4" type="radio">
+                    <label for="23a4">
+                        D．冷漠：漠不关心，得过且过。</label></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第24题</legend>
+            <ul>
+                <li>
+                    <input name="question24" value="C" id="24a1" type="radio">
+                    <label for="24a1">
+                        A．完美主义者：对自己、对别人都高标准、一切事物有秩序； </label></li>
+                <li>
+                    <input name="question24" value="S" id="24a2" type="radio">
+                    <label for="24a2">
+                        B．和气：易相处，易说话，易让人接近；</label></li>
+                <li>
+                    <input name="question24" value="D" id="24a3" type="radio">
+                    <label for="24a3">
+                        C．勤劳：不停的工作，完成任务，不愿意休息；</label></li>
+                <li>
+                    <input name="question24" value="I" id="24a4" type="radio">
+                    <label for="24a4">
+                        D．受欢迎：聚会时的灵魂人物，受欢迎的宾客。</label></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>第25题</legend>
+            <ul>
+                <li>
+                    <input name="question25" value="D" id="25a1" type="radio">
+                    <label for="25a1">
+                        A．富于冒险:愿意面对新事物并敢于下决心掌握的人； </label></li>
+                <li>
+                    <input name="question25" value="S" id="25a2" type="radio">
+                    <label for="25a2">
+                        B．适应力强:轻松自如适应任何环境 ；</label></li>
+                <li>
+                    <input name="question25" value="I" id="25a3" type="radio">
+                    <label for="25a3">
+                        C．生动:充满活力,表情生动,多手势；</label></li>
+                <li>
+                    <input name="question25" value="C" id="25a4" type="radio">
+                    <label for="25a4">
+                        D．善于分析:喜欢研究各部分之间的逻辑和正确的关系。</label></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>第26题</legend>
+            <ul>
+                <li>
+                    <input name="question26" value="D" id="26a1" type="radio">
+                    <label for="26a1">
+                        A．强迫性：发号施令，强迫他人听从； </label></li>
+                <li>
+                    <input name="question26" value="C" id="26a2" type="radio">
+                    <label for="26a2">
+                        B．忠诚：一贯可靠，忠心不移，有时毫无根据地奉献；</label></li>
+                <li>
+                    <input name="question26" value="I" id="26a3" type="radio">
+                    <label for="26a3">
+                        C．有趣：风趣，幽默，把任何事物都能变成精彩的故事；</label></li>
+                <li>
+                    <input name="question26" value="S" id="26a4" type="radio">
+                    <label for="26a4">
+                        D．友善：不主动交谈，不爱争论。</label></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>第27题</legend>
+            <ul>
+                <li>
+                    <input name="question27" value="C" id="27a1" type="radio">
+                    <label for="27a1">
+                        A．计划者：先做详尽的计划，并严格要计划进行，不想改动； </label></li>
+                <li>
+                    <input name="question27" value="S" id="27a2" type="radio">
+                    <label for="27a2">
+                        B．耐性：不因延误而懊恼，冷静且能容忍；</label></li>
+                <li>
+                    <input name="question27" value="C" id="27a3" type="radio">
+                    <label for="27a3">
+                        C．积极：相信自己有转危为安的能力；</label></li>
+                <li>
+                    <input name="question27" value="I" id="27a4" type="radio">
+                    <label for="27a4">
+                        D．推动者：动用性格魅力或鼓励别人参与。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第28题</legend>
+            <ul>
+                <li>
+                    <input name="question28" value="I" id="28a1" type="radio">
+                    <label for="28a1">
+                        A．易怒：善变，孩子性格，易激动，过后马上就忘了； </label></li>
+                <li>
+                    <input name="question28" value="S" id="28a2" type="radio">
+                    <label for="28a2">
+                        B．无目标：不喜欢目标，也无意订目标；</label></li>
+                <li>
+                    <input name="question28" value="D" id="28a3" type="radio">
+                    <label for="28a3">
+                        C．好争论：易与人争吵，不管对何事都觉得自己是对的；</label></li>
+                <li>
+                    <input name="question28" value="C" id="28a4" type="radio">
+                    <label for="28a4">
+                        D．孤芳自赏：容易感到被疏离，经常没有安全感或担心别人不喜欢和自己相处。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>第29题</legend>
+            <ul>
+                <li>
+                    <input name="question29" value="S" id="29a1" type="radio">
+                    <label for="29a1">
+                        A．调解者：经常居中调节不同的意见，以避免双方的冲突； </label></li>
+                <li>
+                    <input name="question29" value="C" id="29a2" type="radio">
+                    <label for="29a2">
+                        B．音乐性：爱好参与并有较深的鉴赏能力，因音乐的艺术性,而不是因为表演的乐趣</label></li>
+                <li>
+                    <input name="question29" value="D" id="29a3" type="radio">
+                    <label for="29a3">
+                        C．发起人：高效率的推动者，是他人的领导者，闲不住；</label></li>
+                <li>
+                    <input name="question29" value="I" id="29a4" type="radio">
+                    <label for="29a4">
+                        D．喜交朋友：喜欢周旋聚会中，善交新朋友不把任何人当陌生人</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第30题</legend>
+            <ul>
+                <li>
+                    <input name="question30" value="S" id="30a1" type="radio">
+                    <label for="30a1">
+                        A．知足：满足自己拥有的，很少羡慕别人； </label></li>
+                <li>
+                    <input name="question30" value="D" id="30a2" type="radio">
+                    <label for="30a2">
+                        B．首领：要求领导地位及别人跟随；</label></li>
+                <li>
+                    <input name="question30" value="C" id="30a3" type="radio">
+                    <label for="30a3">
+                        C．制图者：用图表数字来组织生活，解决问题；</label></li>
+                <li>
+                    <input name="question30" value="I" id="30a4" type="radio">
+                    <label for="30a4">
+                        D．惹人喜爱：人们注意的中心，令人喜欢。</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第31题</legend>
+            <ul>
+                <li>
+                    <input name="question31" value="S" id="31a1" type="radio">
+                    <label for="31a1">
+                        A．平淡：平实淡漠，中间路线,无高低之分，很少表露情感； </label></li>
+                <li>
+                    <input name="question31" value="C" id="31a2" type="radio">
+                    <label for="31a2">
+                        B．悲观：尽管期待最好但往往首先看到事物不利之处；</label></li>
+                <li>
+                    <input name="question31" value="D" id="31a3" type="radio">
+                    <label for="31a3">
+                        C．自负：自我评价高，认为自己是最好的人选；</label></li>
+                <li>
+                    <input name="question31" value="I" id="31a4" type="radio">
+                    <label for="31a4">
+                        D．放任:许别人做他喜欢做的事情，为的是讨好别人，令别人鼓吹自己。</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>第32题</legend>
+            <ul>
+                <li>
+                    <input name="question32" value="S" id="32a1" type="radio">
+                    <label for="32a1">
+                        A．聆听者：愿意听别人倾诉； </label></li>
+                <li>
+                    <input name="question32" value="C" id="32a2" type="radio">
+                    <label for="32a2">
+                        B．忠心对自己的理想、朋友、工作都绝对忠实，有时甚至不需要理由；</label></li>
+                <li>
+                    <input name="question32" value="D" id="32a3" type="radio">
+                    <label for="32a3">
+                        C．领导者：天生的领导，不相信别人的能力能比上自己；</label></li>
+                <li>
+                    <input name="question32" value="I" id="32a4" type="radio">
+                    <label for="32a4">
+                        D．活力充沛：充满活力，精力充沛。</label></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>第33题</legend>
+            <ul>
+                <li>
+                    <input name="question33" value="S" id="33a1" type="radio">
+                    <label for="33a1">
+                        A．迁就：改变自己以与他人协调，短时间内按他人要求行事； </label></li>
+                <li>
+                    <input name="question33" value="C" id="33a2" type="radio">
+                    <label for="33a2">
+                        B．井井有条：有系统有条理安排事情的人；</label></li>
+                <li>
+                    <input name="question33" value="I" id="33a3" type="radio">
+                    <label for="33a3">
+                        C．坦率：毫无保留，坦率发言；</label></li>
+                <li>
+                    <input name="question33" value="D" id="33a4" type="radio">
+                    <label for="33a4">
+                        D．乐观：令他人和自己相信任何事情都会好转。</label></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第34题</legend>
+            <ul>
+                <li>
+                    <input name="question34" value="C" id="34a1" type="radio">
+                    <label for="34a1">
+                        A．坚持不懈：要完成现有的事才能做新的事情； </label></li>
+                <li>
+                    <input name="question34" value="I" id="34a2" type="radio">
+                    <label for="34a2">
+                        B．喜好娱乐：开心充满乐趣与幽默感；</label></li>
+                <li>
+                    <input name="question34" value="D" id="34a3" type="radio">
+                    <label for="34a3">
+                        C．善于说服：用逻辑和事实而不用威严和权利服人；</label></li>
+                <li>
+                    <input name="question34" value="S" id="34a4" type="radio">
+                    <label for="34a4">
+                        D．平和：在冲突中不受干扰，保持平静。</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第35题</legend>
+            <ul>
+                <li>
+                    <input name="question35" value="D" id="35a1" type="radio">
+                    <label for="35a1">
+                        A．固执：坚持照自己的意见行事，不听不同意见； </label></li>
+                <li>
+                    <input name="question35" value="I" id="35a2" type="radio">
+                    <label for="35a2">
+                        B．随兴：做事情没有一贯性，随意做事情；</label></li>
+                <li>
+                    <input name="question35" value="C" id="35a3" type="radio">
+                    <label for="35a3">
+                        C．难于取悦：因为要求太高而使别人很难取悦；</label></li>
+                <li>
+                    <input name="question35" value="S" id="35a4" type="radio">
+                    <label for="35a4">
+                        D．行动迟缓：迟迟才行动，不易参与或者行动总是慢半拍。</label></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+
+            <legend>第36题</legend>
+            <ul>
+                <li>
+                    <input name="question36" value="I" id="36a1" type="radio">
+                    <label for="36a1">
+                        A．感情外露：从不掩饰情感.喜好,交谈时常身不由己接触他人； </label></li>
+                <li>
+                    <input name="question36" value="C" id="36a2" type="radio">
+                    <label for="36a2">
+                        B．深沉：深刻并常常内省，对肤浅的交谈、消遣会厌恶；</label></li>
+                <li>
+                    <input name="question36" value="D" id="36a3" type="radio">
+                    <label for="36a3">
+                        C．果断：有很快做出判断与结论的能力；</label></li>
+                <li>
+                    <input name="question36" value="S" id="36a4" type="radio">
+                    <label for="36a4">
+                        D．幽默：语气平和而有冷静的幽默。</label></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>第37题</legend>
+            <ul>
+                <li>
+                    <input name="question37" value="C" id="37a1" type="radio">
+                    <label for="37a1">
+                        A．不受欢迎：由于强烈要求完美，而拒人千里； </label></li>
+                <li>
+                    <input name="question37" value="S" id="37a2" type="radio">
+                    <label for="37a2">
+                        B．不参与：不愿意加入，不参与，对别人生活不感兴趣；</label></li>
+                <li>
+                    <input name="question37" value="I" id="37a3" type="radio">
+                    <label for="37a3">
+                        C．难预测：时而兴奋，时而低落，或总是不兑现诺言；</label></li>
+                <li>
+                    <input name="question37" value="D" id="37a4" type="radio">
+                    <label for="37a4">
+                        D．缺同情心：很难当众表达对弱者或者受难者的情感。</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第38题</legend>
+            <ul>
+                <li>
+                    <input name="question38" value="I" id="38a1" type="radio">
+                    <label for="38a1">
+                        A．生机勃勃：充满生命力与兴奋； </label></li>
+                <li>
+                    <input name="question38" value="S" id="38a2" type="radio">
+                    <label for="38a2">
+                        B．满足：容易接受任何情况与环境；</label></li>
+                <li>
+                    <input name="question38" value="C" id="38a3" type="radio">
+                    <label for="38a3">
+                        C．敏感：对周围的人事过分关心；</label></li>
+                <li>
+                    <input name="question38" value="D" id="38a4" type="radio">
+                    <label for="38a4">
+                        D．自立：独立性强，只依靠自己的能力、判断、与才智。</label></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>第39题</legend>
+            <ul>
+                <li>
+                    <input name="question39" value="S" id="39a1" type="radio">
+                    <label for="39a1">
+                        A．顺服：易接受他人的观点和喜好，不坚持己见； </label></li>
+                <li>
+                    <input name="question39" value="C" id="39a2" type="radio">
+                    <label for="39a2">
+                        B．自我牺牲：为他人利益愿意放弃个人意见；</label></li>
+                <li>
+                    <input name="question39" value="I" id="39a3" type="radio">
+                    <label for="39a3">
+                        C．善于社交：认为与人相处是好玩，而不是挑战或者商业机会；</label></li>
+                <li>
+                    <input name="question39" value="D" id="39a4" type="radio">
+                    <label for="39a4">
+                        D．意志坚定：决心以自己的方式做事。</label></li>
+
+
+            </ul>
+        </fieldset>
+        <fieldset>
+
+
+            <legend>第40题</legend>
+            <ul>
+                <li>
+                    <input name="question40" value="D" id="40a1" type="radio">
+                    <label for="40a1">
+                        A．没耐性：难以忍受等待别人； </label></li>
+                <li>
+                    <input name="question40" value="S" id="40a2" type="radio">
+                    <label for="40a2">
+                        B．无安全感：感到担心且无自信心；</label></li>
+                <li>
+                    <input name="question40" value="C" id="40a3" type="radio">
+                    <label for="40a3">
+                        C．优柔寡断：很难下决定；</label></li>
+                <li>
+                    <input name="question40" value="I" id="40a4" type="radio">
+                    <label for="40a4">
+                        D．好插嘴：一个滔滔不绝的发言人，不是好听众，不注意别人的说话。</label></li>
+            </ul>
+        </fieldset>
+
+        <fieldset id="do">
+            <button type="submit"> 提交 </button> <button type="reset">重置</button>
+        </fieldset>
+
+        </form>
+
+        <nav>
+            <ul>
+               <li><a href="#top">↑</a></li>
+               <li><a href="#do">↓</a> </li>
+            </ul>
+        </nav>
+        <div id="progressbar">
+            <progress id="progress" max="400" value="0"><strong>答题进度</strong></progress>
+        </div>
+        <section id="result">
+            <h2>结果统计</h2>
+            <ul>
+                <li>D：<em id="D">0</em></li>
+                <li>I：<em id="I">0</em></li>
+                <li>S：<em id="S">0</em></li>
+                <li>C：<em id="C">0</em></li>
+            </ul>
+        </section>
+
+
+
+    </div>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(function(){
+            $("fieldset").append('<span class="selValue"></span>');
+            //动画初始样式
+            var oldStyle = 'font-size: 2.4em;bottom:5px;opacity:0';
+
+
+            $(':radio').each(function () {
+                $(this).click(function(){
+
+                });
+            });
+
+            //点击li时也可选中radio
+            $('li').click(function(){
+                selItem($(this).children(':radio'),$(this),$(this).parent('ul').next());
+                realTimeInfo($(this).children(':radio:checked').val(),$(this).children(':radio')[0].name);
+            });
+
+            var selResult = {}
+
+            function realTimeInfo(sel,qname){
+                var _r = new Array();
+                _r["D"] = [];
+                _r['I'] = [];
+                _r['S'] = [];
+                _r['C'] = [];
+
+
+                var _d =[],_i=[],_s=[],_c=[];
+                //$('#'+sel).text(parseInt($('#'+sel).text())+1);
+                switch (sel) {
+                    case 'D':
+                        _d.push(qname);
+                        break;
+                    case 'I':
+                        _i.push(qname);
+                        break;
+                    case 'S':
+                        _s.push(qname);
+                        break;
+                    case 'C':
+                        _c.push(qname);
+                        break;
+                }
+
+
+
+            }
+
+            /**
+             * selItem 选择操作
+             * @param $s jQuery object 选中对象
+             * @param $p 父对象li
+             * @param $v 选中对象值
+             */
+            function selItem($s,$p,$v) {
+                $s[0].checked=true;
+                $p.addClass('selected').siblings('li').removeClass();
+
+                $v.text($s.val()).attr('style',oldStyle)
+                        .animate({
+                            top:'5px',
+                            opacity:1,
+                            fontSize:'4.4em'},500);
+                $p.parents("fieldset").removeClass("error");
+
+                $('body,html').animate({scrollTop:($p.parents("fieldset").offset().top-15)+'px'},500);
+
+                $('#progressbar').fadeIn();//.val($(':radio:checked').length);
+                var hasChecked = $(':radio:checked').length;
+                var _v = $('#progress').val();
+
+                startTimeout(_v,$('#progress'),50,hasChecked*10);
+            }
+
+            /**
+             * startTimeout 进度条动画效果
+             * @param c 当前值
+             * @param $el 对象
+             * @param ms number 时
+             * @param sel number 已经选择的数量
+             */
+
+            function startTimeout(c, $el, ms,sel) {
+                $el.val(c);
+           		if (c < sel) {
+           			setTimeout(function() {
+           				startTimeout(c+1, $el, ms,sel)
+           			}, ms);
+           		}
+           	}
+
+
+            $('form').submit(function () {
+                $(':radio').each(function () {
+                    var r_name = '[name=' + $(this).attr('name') + ']';
+
+                    if (!$(r_name).is(':checked')) {
+                        $(this).parents('fieldset').addClass('error');
+                    }
+                });
+
+                if ($('.error').length>0) {
+                    var toError = $('.error:first').offset();
+                    $("body,html").animate({
+                               scrollTop:(toError.top-15)+'px'
+                           },300)
+                    $('.error:first').animate({marginLeft:'-50px'},50)
+                            .animate({marginLeft:'50px'},100)
+                            .animate({marginLeft:'-45px'},100)
+                            .animate({marginLeft:'54px'},100)
+                            .animate({marginLeft:'-55px'},100)
+                            .animate({marginLeft:'45px'},100)
+                            .animate({marginLeft:'-50px'},100)
+                            .animate({marginLeft:'50px'},100)
+                            .animate({marginLeft:'0'},100)
+                    return false;
+                }
+            });
+
+            $("[type=reset]").click(function(){
+              $("fieldset").removeClass("error");
+              $("li").removeClass("selected");
+              $(".selValue").empty().attr('style',oldStyle);
+              $('body,html').animate({
+                         scrollTop:0
+                     },500);
+              $('#progressbar').fadeOut().val(0);
+            });
+
+            $('nav a').each(function(){
+                var to = $(this).attr('href');
+                $(this).click(function(){
+                    $('body,html').animate({
+                        scrollTop:$(to).offset().top
+                    },500);
+                    return false;
+                });
+            });
+
+
+        });
+    </script>
+
+</body>
+</html>

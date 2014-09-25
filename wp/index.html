@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>This My Study File</title>
+    <script type="text/javascript" src="jquery-1.9.1.js"></script>
+    <style type="text/css">
+        div { margin-bottom: 1em;}
+        a { text-decoration: none; color: darkblue;}
+    </style>
+</head>
+<body>
+
+<div id="header">
+
+    <script type="text/javascript">
+
+        var proinces = new Array('北京', '云南');
+        var cities = new Array(
+                new Array('海淀区', '东城区', '西城区', '昌平区', '朝阳区'),
+                new Array('昆明', '曲靖', '西双版纳', '大理')
+        );
+
+        document.write('<select onchange="city(this)" name="prv">');
+        document.write('<option value="0">--请选中省份--</option>');
+        for (var i = 0; i < proinces.length; i++) {
+            document.write('<option value="' + proinces[i] + '">' + proinces[i] + '</option>');
+        }
+        document.write('</select>');
+
+        document.write('<select id="city" name="city"><option value="0">--请选择城市--</option></select>');
+
+        var prv = document.getElementsByName('prv');
+
+
+        function city(sel) {
+
+            var prvindex = sel.selectedIndex;
+
+            //alert(prvindex);
+            //var citylist = document.getElementsById('city');
+            //alert(cities[prvindex]);
+            var citylist = document.getElementById('city');
+
+            //清空option
+            citylist.innerHTML = '';
+
+            cityitem = document.createElement('option');
+            cityitem.value = 0;
+            cityitem.innerHTML = '--请选择城市--';
+            citylist.appendChild(cityitem);
+
+            var selcities = cities[prvindex - 1];
+
+            if (prvindex > 0) {
+                for (var i = 1; i < selcities.length; i++) {
+                    cityitem = document.createElement('option');
+                    cityitem.value = selcities[i];
+                    cityitem.innerHTML = selcities[i];
+                    citylist.appendChild(cityitem);
+                }
+
+            }
+
+
+        }
+
+
+    </script>
+
+</div>
+<hr>
+<style type="text/css">
+    .clist { display:none; position: absolute;left:3em;top:1.5em; background-color: #ffffba;border: 1px solid #ccc; padding: 0; margin: 0; list-style:none;}
+    .clist li { padding: 0; line-height: 1.5em; border-bottom: 1px solid #EEE; }
+    .clist a { display: block;padding: 5px 10px;}
+    .clist a:hover { background-color: #a52a2a;color: #FFF;}
+    #username { position: relative;}
+
+</style>
+<script type="text/javascript">
+    var customers = new Array();
+    customers['songke'] = new Array('国际货币研究所', '82519616');
+    customers['Liqin'] = new Array('研究中心', '382838423');
+    customers['金融EMBA'] = new Array('中国人民大学金融EMBA', '9210');
+    
+    var clist='';
+
+    for (x in customers)
+    {
+        clist += '<li><a href="#">'+x+'</a></li>'+"\n";
+    }
+
+    clist = '<ul class="clist">'+clist+'</ul>';
+    //document.write(clist);
+
+    $(document).ready(function(){
+          $("#username").append(clist);
+          $("#uname").focus(function(){
+             $('.clist').slideDown();
+
+          }).blur(function(){
+                      $('.clist').fadeOut('fast');
+                  })
+
+          $('.clist a').each(function(){
+              $(this).click(function(){
+                  var selcustomer = $(this).text();
+                  $("#uname").val(selcustomer);
+                  $("#dw").val(customers[selcustomer][0]);
+                  $("#dh").val(customers[selcustomer][1]);
+                  //alert(customers[selcustomer][0]);
+
+
+              });
+
+
+        });
+
+    });
+
+    function contentScroll(idName, scrollNum){                     //动态信息{
+        var scrollLength = $("#" + idName + " li").length;
+        var trueNum = scrollLength - scrollNum - 1;
+        var $scrollItems = $("#" + idName + " li");
+        $("#" + idName + " li").hide();
+        $("#" + idName + " li:gt(" + trueNum + ")").slideDown();
+        setInterval(function () {
+            var $scrollNow = $("#" + idName + " li:visible:first").prev("li");
+            $scrollNow.css("opacity", "0").slideDown("slow", function () {
+                $(this).animate({opacity: 1}, 1000, function () {
+                    $(this).css("opacity", "1");
+                    $("#" + idName + " li:visible:last").hide();
+                    if ($("#" + idName + " li:visible:first").prev("li").length == 0){
+                        $("#" + idName + " li:hidden").prependTo("#" + idName);
+                    }
+                })
+            })
+        }, 3000)
+    }
+
+    $(function(){
+        contentScroll("my-scroll",5);
+
+    })
+
+    var isFF = !!navigator.userAgent.match(/firefox/i);
+
+    alert(isFF);
+
+
+
+</script>
+
+<p>Hello World!</p>
+<style type="text/css">
+    #my-scroll  { list-style: none; height: 130px; border: 1px solid red; margin: 0; padding: 0; width: 400px; text-overflow:ellipsis;overflow: hidden;}
+    #my-scroll li { background-color: #EEE;border-bottom: 1px dashed #CCC; height: 25px; line-height: 25px; text-overflow: ellipsis;}
+</style>
+
+
+<ul id="my-scroll" style="">
+    <li><a href="">滚动条目滚动条目滚动条目滚动条目滚动条目滚动条目-1</a></li>
+    <li><a href="">滚动条目滚动条目滚动条目滚动条目滚动条目滚动条目-2</a></li>
+    <li><a href="">滚动条目滚动条目滚动条目滚动条目滚动条目滚动条目-3</a></li>
+    <li><a href="">滚动条目滚动条目滚动条目滚动条目滚动条目滚动条目-4</a></li>
+    <li><a href="">滚动条目滚动条目滚动条目滚动条目滚动条目滚动条目-5</a></li>
+    <li><a href="">滚动条目滚动条目滚动条目滚动条目滚动条目滚动条目-6</a></li>
+    <li><a href="">滚动条目滚动条目滚动条目滚动条目滚动条目滚动条目-7</a></li>
+    <li><a href="">滚动条目滚动条目滚动条目滚动条目滚动条目滚动条目-8</a></li>
+    <li><a href="">滚动条目滚动条目滚动条目滚动条目滚动条目滚动条目-9</a></li>
+    <li><a href="">滚动条目滚动条目滚动条目滚动条目滚动条目滚动条目-10</a></li>
+
+</ul>
+
+</body>
+</html>
